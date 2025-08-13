@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "roadmap": "Feuille de route",
+    "team": "Équipe",
+    "howToBuy": "Comment acheter",
+    "whitepaper": "Livre blanc",
+    "connectWallet": "Connecter le portefeuille"
+  }
+}

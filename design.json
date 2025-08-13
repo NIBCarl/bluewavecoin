@@ -1,0 +1,205 @@
+{
+  "designSystem": {
+    "name": "Panshibi Memecoin Design System",
+    "version": "1.0",
+    "description": "A design system for the Panshibi memecoin project, focusing on a playful, engaging, and community-centric visual identity."
+  },
+  "colorPalette": {
+    "primary": {
+      "pink": "#E789FF",
+      "cyan": "#89F8FF",
+      "darkBlue": "#0D0F2B",
+      "white": "#FFFFFF"
+    },
+    "secondary": {
+      "lightPink": "#FFD6F9",
+      "lightCyan": "#D6FFFE",
+      "purple": "#A435F0",
+      "darkGray": "#1E1E1E",
+      "lightGray": "#F5F5F5"
+    },
+    "accent": {
+      "yellow": "#FFD700"
+    },
+    "background": {
+      "main": "#E5E5E5",
+      "card": "#FFFFFF",
+      "dark": "#1A1A1A"
+    },
+    "text": {
+      "primary": "#000000",
+      "secondary": "#545454",
+      "onDark": "#FFFFFF",
+      "link": "#A435F0"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "headings": "'Lilita One', sans-serif",
+      "body": "'Inter', sans-serif"
+    },
+    "fontSizes": {
+      "xs": "12px",
+      "sm": "14px",
+      "base": "16px",
+      "lg": "18px",
+      "xl": "24px",
+      "2xl": "32px",
+      "3xl": "48px",
+      "4xl": "64px"
+    },
+    "fontWeights": {
+      "regular": 400,
+      "medium": 500,
+      "bold": 700
+    },
+    "lineHeight": {
+      "normal": 1.5,
+      "heading": 1.2
+    }
+  },
+  "structure": {
+    "layout": {
+      "containerMaxWidth": "1200px",
+      "grid": {
+        "columns": 12,
+        "gutter": "24px"
+      }
+    },
+    "sections": [
+      {
+        "name": "Header",
+        "description": "Sticky header containing the logo, navigation links, and a 'Connect Wallet' button."
+      },
+      {
+        "name": "Hero",
+        "description": "Main section featuring animated characters, a prominent headline, and a presale call-to-action card."
+      },
+      {
+        "name": "Featured In",
+        "description": "A section to display logos of publications or partners."
+      },
+      {
+        "name": "About/Unleashed",
+        "description": "Introduction to the Panshibi project with bold text and character illustrations."
+      },
+      {
+        "name": "Press",
+        "description": "A visually engaging section with quotes and character art."
+      },
+      {
+        "name": "Exchange Wishlist",
+        "description": "A section outlining the target exchanges for listing."
+      },
+      {
+        "name": "Giveaway",
+        "description": "A promotional section for a giveaway."
+      },
+      {
+        "name": "How to Buy",
+        "description": "A step-by-step guide on how to purchase the token."
+      },
+      {
+        "name": "Tokenomics",
+        "description": "A section detailing the token distribution with a donut chart."
+      },
+      {
+        "name": "Meet the Team",
+        "description": "Introduces the core team members with character avatars."
+      },
+      {
+        "name": "Roadmap",
+        "description": "A timeline of the project's future plans."
+      },
+      {
+        "name": "FAQ",
+        "description": "An accordion-style section for frequently asked questions."
+      },
+      {
+        "name": "Footer",
+        "description": "Contains social media links and legal disclaimers."
+      }
+    ]
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "backgroundColor": "linear-gradient(90deg, #E789FF, #89F8FF)",
+        "textColor": "#0D0F2B",
+        "borderRadius": "30px",
+        "padding": "15px 30px",
+        "fontWeight": "bold",
+        "border": "none",
+        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.1)",
+        "hover": {
+          "transform": "scale(1.05)"
+        }
+      },
+      "secondary": {
+        "backgroundColor": "#FFFFFF",
+        "textColor": "#0D0F2B",
+        "borderRadius": "30px",
+        "padding": "15px 30px",
+        "fontWeight": "bold",
+        "border": "2px solid #0D0F2B",
+        "hover": {
+          "backgroundColor": "#F5F5F5"
+        }
+      }
+    },
+    "cards": {
+      "default": {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "20px",
+        "boxShadow": "0 10px 20px rgba(0, 0, 0, 0.1)",
+        "padding": "24px"
+      },
+      "presale": {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "20px",
+        "border": "3px solid #000000",
+        "boxShadow": "5px 5px 0px #000000",
+        "padding": "24px"
+      }
+    },
+    "inputs": {
+      "default": {
+        "backgroundColor": "#F5F5F5",
+        "borderRadius": "10px",
+        "border": "1px solid #DDDDDD",
+        "padding": "12px 16px",
+        "focus": {
+          "borderColor": "#A435F0"
+        }
+      }
+    },
+    "characterDesign": {
+      "style": "2D cartoon with thick outlines and expressive features.",
+      "mainCharacters": [
+        {
+          "name": "Poko Panda",
+          "description": "The leader of the group."
+        },
+        {
+          "name": "Bamboo Blitz",
+          "description": "The muscular protector."
+        },
+        {
+          "name": "Roku The Rogue",
+          "description": "The skilled fighter."
+        },
+        {
+          "name": "Ping Ping",
+          "description": "A larger, more traditional panda figure."
+        }
+      ],
+      "colorScheme": "Primarily black and white for the pandas, with vibrant colors used for clothing and accessories to denote personality."
+    }
+  },
+  "designStyle": {
+    "overall": "A playful and chaotic 'meme' aesthetic, balanced with clean, modern UI components for usability.",
+    "iconography": "Custom icons with a hand-drawn feel, often incorporating the panda motif.",
+    "illustrations": "Character-driven illustrations are central to the brand's narrative and visual appeal.",
+    "animations": "Subtle animations on buttons and interactive elements to enhance user experience. More prominent animations are used for character introductions and storytelling."
+  }
+}

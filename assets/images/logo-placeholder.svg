@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00AAFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#waveGradient)" />
+  
+  <!-- Wave pattern -->
+  <path d="M 20 120 Q 50 80, 80 120 T 140 120 T 180 120" 
+        stroke="white" 
+        stroke-width="8" 
+        fill="none" 
+        stroke-linecap="round"/>
+  
+  <!-- Blue Wave Coin text -->
+  <text x="100" y="160" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial, sans-serif">BWC</text>
+</svg>

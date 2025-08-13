@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "roadmap": "Fahrplan",
+    "team": "Team",
+    "howToBuy": "Wie man kauft",
+    "whitepaper": "Weißbuch",
+    "connectWallet": "Wallet verbinden"
+  }
+}

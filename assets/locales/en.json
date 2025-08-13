@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "roadmap": "Roadmap",
+    "team": "Team",
+    "howToBuy": "How to Buy",
+    "whitepaper": "Whitepaper",
+    "connectWallet": "Connect Wallet"
+  }
+}

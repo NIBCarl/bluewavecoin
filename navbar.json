@@ -1,0 +1,119 @@
+{
+    "designSystem": {
+      "name": "Cartoon Meme Header Bar",
+      "version": "1.0",
+      "description": "A design system for creating a playful, cartoonish website header. The core aesthetic is defined by thick, hand-drawn-style black outlines, rounded shapes, and a clean, high-contrast layout. It mimics the style of modern webcomics and meme culture."
+    },
+    "colorPalette": {
+      "primary": {
+        "background": "#FFFFFF",
+        "border": "#000000"
+      },
+      "accent": {
+        "pink": "#FFC0CB",
+        "telegram_blue": "#229ED9"
+      },
+      "text": {
+        "primary": "#000000",
+        "navigation": "#4A4A4A"
+      },
+      "container_background": {
+        "light_gray": "#D1D5DB"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "navigation": "'Inter', sans-serif",
+        "logo_and_buttons": "'Lilita One', 'Bangers', or a similar bold, chunky, sans-serif comic-style font."
+      },
+      "fontSizes": {
+        "navigation": "16px",
+        "button": "18px"
+      },
+      "fontWeights": {
+        "navigation": "500",
+        "logo_and_buttons": "700"
+      }
+    },
+    "structure": {
+      "header_bar": {
+        "description": "The main container for all header elements, designed to look like a single, solid object floating on the page.",
+        "shape": "A long, horizontal, pill-shaped rectangle with fully rounded ends (high border-radius).",
+        "layout": {
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "padding": "8px 16px"
+        },
+        "elements": [
+          {
+            "name": "Logo Area",
+            "position": "Far left",
+            "content": "Contains the brand logo icon and text."
+          },
+          {
+            "name": "Navigation Area",
+            "position": "Center",
+            "content": "A horizontal list of text-based navigation links."
+          },
+          {
+            "name": "Action Area",
+            "position": "Far right",
+            "content": "A group containing language selectors, social media icons, and the main call-to-action button."
+          }
+        ]
+      }
+    },
+    "components": {
+      "main_container": {
+        "description": "The defining visual shell of the header.",
+        "border": {
+          "width": "4px",
+          "color": "var(--border-color, #000000)",
+          "style": "solid"
+        },
+        "background_color": "var(--background-color, #FFFFFF)",
+        "box_shadow": "0 4px 6px rgba(0, 0, 0, 0.1)",
+        "border_radius": "9999px"
+      },
+      "buttons": {
+        "primary_cta": {
+          "description": "The 'Connect Wallet' button style.",
+          "shape": "Pill-shaped with fully rounded ends.",
+          "border": {
+            "width": "3px",
+            "color": "var(--border-color, #000000)",
+            "style": "solid"
+          },
+          "background_color": "var(--accent-pink, #FFC0CB)",
+          "padding": "12px 24px",
+          "text_style": "Uses the bold, comic-style font."
+        }
+      },
+      "icons": {
+        "circular_icon": {
+          "description": "Style for social media or language selector icons.",
+          "shape": "A perfect circle.",
+          "border": {
+            "width": "3px",
+            "color": "var(--border-color, #000000)",
+            "style": "solid"
+          },
+          "background_color": "var(--border-color, #000000)",
+          "icon_color": "#FFFFFF",
+          "size": "32px x 32px"
+        }
+      },
+      "logo": {
+        "description": "The brand logo component.",
+        "layout": "A circular icon placed immediately to the left of the brand name text.",
+        "icon_style": "Circular, with a thick black border, containing cartoon imagery.",
+        "text_style": "Uses the bold, comic-style font."
+      }
+    },
+    "designStyle": {
+      "overall_feel": "Playful, bold, and memetic.",
+      "core_principle": "The defining characteristic is the use of thick, solid black borders on all major container and interactive elements (header bar, buttons, icons). This creates a cohesive, hand-drawn, 'sticker-like' aesthetic.",
+      "spacing": "Generous spacing between element groups (logo, nav, actions) to maintain a clean and uncluttered look despite the bold style."
+    }
+  }
