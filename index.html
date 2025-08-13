@@ -147,12 +147,13 @@
                         
                         <div class="purchase-form">
                             <div class="input-group">
-                                <input type="number" placeholder="Enter ETH amount" class="amount-input">
+                                <input type="number" id="eth-amount-1" placeholder="Enter ETH amount" class="amount-input eth-amount-input" step="0.01" min="0.01">
                                 <span class="input-suffix">ETH</span>
                             </div>
                             
                             <div class="output-display">
-                                <span>You receive: <strong>0 $BLUEWAVE</strong></span>
+                                <span>You receive: <strong class="output-amount">0 $BLUEWAVE</strong></span>
+                                <div class="usd-value" style="font-size: 14px; color: #6b7280; margin-top: 5px;">≈ $0.00 USD</div>
                             </div>
                             
                             <button class="btn btn-primary btn-purchase">
@@ -548,7 +549,7 @@
                         <div class="input-section">
                             <label for="eth-amount">Enter ETH Amount</label>
                             <div class="input-group">
-                                <input type="number" id="eth-amount" placeholder="0.1" class="amount-input" step="0.01" min="0.01">
+                                <input type="number" id="eth-amount" placeholder="0.1" class="amount-input eth-amount-input" step="0.01" min="0.01">
                                 <span class="input-suffix">ETH</span>
                             </div>
                         </div>
@@ -824,21 +825,7 @@
     <script src="script.js"></script>
     <script src="main.js"></script>
     <script>
-        // Democratic Crypto Calculator
-        const ethInput = document.getElementById('eth-amount');
-        const outputAmount = document.querySelector('.output-amount');
-        const currentPrice = 0.005; // $0.005 per token
-        const ethPrice = 3500; // Approximate ETH price in USD
-        
-        if (ethInput && outputAmount) {
-            ethInput.addEventListener('input', function() {
-                const ethAmount = parseFloat(this.value) || 0;
-                const usdAmount = ethAmount * ethPrice;
-                const blueWaveTokens = Math.floor(usdAmount / currentPrice);
-                
-                outputAmount.textContent = `${blueWaveTokens.toLocaleString()} $BLUEWAVE`;
-            });
-        }
+        // Note: Advanced Democratic Crypto Calculator is now handled by js/presale-functionality.js
         
         // Democratic engagement tracking
         function trackDemocraticEngagement(action) {

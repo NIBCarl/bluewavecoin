@@ -48,29 +48,44 @@
 
     // Initialize presale calculator
     function initPresaleCalculator() {
-        const ethInput = document.getElementById('eth-amount');
-        const outputAmount = document.querySelector('.output-amount');
-        const usdValue = document.querySelector('.usd-value');
+        // Handle multiple ETH input fields
+        const ethInputs = document.querySelectorAll('.eth-amount-input, #eth-amount, #eth-amount-1');
+        const outputAmounts = document.querySelectorAll('.output-amount');
         
-        if (ethInput && outputAmount) {
-            // Enhanced calculator with real-time ETH price
-            ethInput.addEventListener('input', function() {
-                calculateTokens(this.value);
-            });
-            
-            // Add input validation
-            ethInput.addEventListener('blur', function() {
-                validatePurchaseAmount(this.value);
-            });
-            
-            // Initial calculation
-            if (ethInput.value) {
-                calculateTokens(ethInput.value);
+        // Set up listeners for all ETH input fields
+        ethInputs.forEach(ethInput => {
+            if (ethInput) {
+                // Enhanced calculator with real-time ETH price
+                ethInput.addEventListener('input', function() {
+                    calculateTokens(this.value);
+                    // Sync all input fields
+                    syncInputFields(this.value);
+                });
+                
+                // Add input validation
+                ethInput.addEventListener('blur', function() {
+                    validatePurchaseAmount(this.value);
+                });
+                
+                // Initial calculation
+                if (ethInput.value) {
+                    calculateTokens(ethInput.value);
+                }
             }
-        }
+        });
         
         // Add quick amount buttons
         addQuickAmountButtons();
+    }
+
+    // Sync all input fields to the same value
+    function syncInputFields(value) {
+        const ethInputs = document.querySelectorAll('.eth-amount-input, #eth-amount, #eth-amount-1');
+        ethInputs.forEach(input => {
+            if (input.value !== value) {
+                input.value = value;
+            }
+        });
     }
 
     // Calculate tokens based on ETH input
@@ -120,24 +135,29 @@
 
     // Update calculator display
     function updateCalculatorDisplay(tokens, usdAmount, ethAmount) {
-        const outputAmount = document.querySelector('.output-amount');
-        const usdValue = document.querySelector('.usd-value');
-        
-        if (outputAmount) {
-            outputAmount.textContent = `${tokens.toLocaleString()} $BLUEWAVE`;
-            
-            // Add animation if significant change
-            if (tokens > 1000) {
-                outputAmount.classList.add('highlight-calculation');
-                setTimeout(() => {
-                    outputAmount.classList.remove('highlight-calculation');
-                }, 1000);
+        // Update all output amount elements
+        const outputAmounts = document.querySelectorAll('.output-amount');
+        outputAmounts.forEach(outputAmount => {
+            if (outputAmount) {
+                outputAmount.textContent = `${tokens.toLocaleString()} $BLUEWAVE`;
+                
+                // Add animation if significant change
+                if (tokens > 1000) {
+                    outputAmount.classList.add('highlight-calculation');
+                    setTimeout(() => {
+                        outputAmount.classList.remove('highlight-calculation');
+                    }, 1000);
+                }
             }
-        }
+        });
         
-        if (usdValue) {
-            usdValue.textContent = `≈ $${usdAmount.toFixed(2)} USD`;
-        }
+        // Update all USD value elements
+        const usdValues = document.querySelectorAll('.usd-value');
+        usdValues.forEach(usdValue => {
+            if (usdValue) {
+                usdValue.textContent = `≈ $${usdAmount.toFixed(2)} USD`;
+            }
+        });
         
         // Update any other displays
         updatePurchasePreview(tokens, usdAmount, ethAmount);
@@ -145,6 +165,18 @@
 
     // Show bonus calculation
     function showBonusCalculation(tokens, usdAmount) {
+        // Check if we're in the "Join the Democratic Crypto Revolution" section
+        const isDemocraticRevolutionSection = document.querySelector('#presale .section-title')?.textContent?.includes('Join the Democratic Crypto Revolution');
+        
+        // Skip bonus calculations for the Democratic Revolution section
+        if (isDemocraticRevolutionSection) {
+            const bonusDisplays = document.querySelectorAll('.bonus-display');
+            bonusDisplays.forEach(display => {
+                display.style.display = 'none';
+            });
+            return;
+        }
+        
         let bonus = 0;
         let bonusText = '';
         
@@ -185,6 +217,13 @@
 
     // Add quick amount buttons
     function addQuickAmountButtons() {
+        // Check if we're in the Democratic Revolution section (no quick buttons there)
+        const isDemocraticRevolutionSection = document.querySelector('#presale .section-title')?.textContent?.includes('Join the Democratic Crypto Revolution');
+        
+        if (isDemocraticRevolutionSection) {
+            return; // Don't add quick amount buttons to Democratic Revolution section
+        }
+        
         const calculatorSection = document.querySelector('.purchase-form, .presale-calculator');
         
         if (calculatorSection && !calculatorSection.querySelector('.quick-amounts')) {
@@ -378,9 +417,18 @@
             return;
         }
         
-        // Get purchase amount
-        const ethInput = document.getElementById('eth-amount');
-        const ethAmount = ethInput ? parseFloat(ethInput.value) : 0;
+        // Get purchase amount from any ETH input field
+        const ethInputs = document.querySelectorAll('.eth-amount-input, #eth-amount, #eth-amount-1');
+        let ethAmount = 0;
+        
+        // Find the first input with a value
+        for (const input of ethInputs) {
+            const value = parseFloat(input.value) || 0;
+            if (value > 0) {
+                ethAmount = value;
+                break;
+            }
+        }
         
         if (!ethAmount || ethAmount === 0) {
             showPurchaseError('Please enter an amount to purchase');
@@ -405,7 +453,10 @@
         getCurrentETHPrice().then(ethPrice => {
             const usdAmount = ethAmount * ethPrice;
             const tokens = Math.floor(usdAmount / presaleState.currentPrice);
-            const bonus = calculateBonus(usdAmount);
+            
+            // Check if we're in the Democratic Revolution section (no bonuses)
+            const isDemocraticRevolutionSection = document.querySelector('#presale .section-title')?.textContent?.includes('Join the Democratic Crypto Revolution');
+            const bonus = isDemocraticRevolutionSection ? 0 : calculateBonus(usdAmount);
             const totalTokens = tokens + bonus;
             
             modal.innerHTML = `
