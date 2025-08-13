@@ -1973,9 +1973,358 @@ body {
     }
 }
 
+/* Democratic Animation Styles */
+
+/* Core Animation Keyframes */
+@keyframes democratic-pulse {
+    0%, 70%, 100% { 
+        box-shadow: 0 0 0 0 rgba(0, 51, 102, 0.4);
+        transform: scale(1);
+    }
+    35% { 
+        box-shadow: 0 0 0 10px rgba(0, 51, 102, 0);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes unity-wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes progress-celebration {
+    0% { transform: scale(1); }
+    25% { 
+        transform: scale(1.05); 
+        box-shadow: 0 0 20px rgba(0, 51, 102, 0.6);
+    }
+    50% { 
+        transform: scale(1.02) rotate(1deg); 
+        box-shadow: 0 0 30px rgba(0, 168, 204, 0.4);
+    }
+    75% { 
+        transform: scale(1.03) rotate(-0.5deg); 
+        box-shadow: 0 0 25px rgba(0, 51, 102, 0.5);
+    }
+    100% { 
+        transform: scale(1) rotate(0deg); 
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes democratic-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes wave-sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes focus-pulse {
+    0%, 100% { outline-color: var(--democratic-blue); }
+    50% { outline-color: var(--progressive-cyan); }
+}
+
+/* Democratic Animation Classes */
+.democratic-pulse {
+    animation: democratic-pulse 3s ease-in-out infinite;
+}
+
+.unity-wave {
+    background: linear-gradient(-45deg, 
+        var(--democratic-blue), 
+        var(--progressive-cyan), 
+        var(--wave-blue), 
+        var(--unity-blue)
+    );
+    background-size: 400% 400%;
+    animation: unity-wave 2s ease infinite;
+}
+
+.progress-celebration {
+    animation: progress-celebration 1s ease-out;
+}
+
+.democratic-gradient {
+    background: linear-gradient(90deg, 
+        var(--democratic-blue), 
+        var(--progressive-cyan),
+        var(--wave-blue)
+    );
+    background-size: 200% 100%;
+    animation: democratic-gradient 3s ease infinite;
+}
+
+/* Enhanced Button Animations */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+/* Enhanced Card Animations */
+.political-card,
+.team-card,
+.quote-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center bottom;
+}
+
+.political-card:hover,
+.team-card:hover,
+.quote-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+}
+
+.political-card .card-icon,
+.team-card .team-avatar {
+    transition: transform 0.3s ease;
+}
+
+.political-card:hover .card-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.team-card:hover .team-avatar img {
+    transform: scale(1.1);
+}
+
+/* Enhanced Progress Bar */
+.progress-fill {
+    background: linear-gradient(90deg, 
+        var(--democratic-blue), 
+        var(--progressive-cyan),
+        var(--wave-blue)
+    );
+    background-size: 200% 100%;
+    animation: democratic-gradient 3s ease infinite;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-large .progress-fill {
+    background: linear-gradient(90deg, 
+        var(--democratic-blue) 0%,
+        var(--progressive-cyan) 25%,
+        var(--wave-blue) 50%,
+        var(--unity-blue) 75%,
+        var(--democratic-blue) 100%
+    );
+    background-size: 400% 100%;
+    animation: democratic-gradient 4s ease infinite;
+}
+
+/* Navigation Enhancements */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    color: var(--democratic-blue);
+}
+
+/* Wave Animation Background */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 51, 102, 0.1),
+        transparent
+    );
+    animation: wave-sweep 4s ease-in-out infinite;
+}
+
+/* FAQ Enhancements */
+.faq-question {
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(0, 51, 102, 0.05);
+    transform: translateX(5px);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.animate__animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Democratic Theme Elements */
+.democratic-wave {
+    position: relative;
+    overflow: hidden;
+}
+
+.democratic-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 51, 102, 0.4),
+        transparent
+    );
+    animation: wave-sweep 3s infinite;
+}
+
+.unity-pulse {
+    animation: democratic-pulse 2s ease-in-out infinite;
+}
+
+/* Accessibility Support */
+.reduce-animations *,
+.reduce-animations *::before,
+.reduce-animations *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+.animation-toggle {
+    transition: all 0.3s ease;
+}
+
+.animation-toggle:hover {
+    background: var(--wave-blue) !important;
+    transform: scale(1.05);
+}
+
+/* Focus Management */
+.animated-element:focus-visible {
+    outline: 3px solid var(--democratic-blue);
+    outline-offset: 2px;
+    animation: focus-pulse 1s ease-in-out;
+}
+
+/* Loading States */
+.loading-shimmer {
+    background: linear-gradient(90deg, 
+        var(--light-gray) 25%, 
+        rgba(0, 51, 102, 0.1) 50%, 
+        var(--light-gray) 75%
+    );
+    background-size: 200% 100%;
+    animation: democratic-gradient 2s ease infinite;
+}
+
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .democratic-pulse,
+    .unity-wave,
+    .democratic-gradient {
+        animation: none !important;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 /* Loading Animation */
